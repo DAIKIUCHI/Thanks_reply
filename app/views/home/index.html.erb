@@ -6,7 +6,11 @@
     <li><%= current_user.nickname %></li>
     <li><%= image_tag current_user.image%></li>
     
-    <!--<li><%= current_user.location %></li>-->
+    <% current_user.tweets.each do |tweet| %>
+      <li><%= tweet.comment %></li>
+    <% end%>
+
+    
       
     <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
   <%else%>
