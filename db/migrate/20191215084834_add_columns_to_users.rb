@@ -8,3 +8,10 @@ class AddColumnsToUsers < ActiveRecord::Migration[5.2]
     add_column :users, :image, :string
   end
 end
+
+
+
+# $ rails generate migration add_token_to_users token:string secret:string
+
+# $ rails db:migrate
+# $ rails db:migrate:reset

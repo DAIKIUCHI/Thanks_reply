@@ -19,7 +19,9 @@ class User < ApplicationRecord
         image: auth.info.image,
         name: auth.info.name,
         nickname: auth.info.nickname,
-        location: auth.info.location
+        location: auth.info.location,
+        token: auth.credentials.token,
+        secret: auth.credentials.secret
       )
     end
   

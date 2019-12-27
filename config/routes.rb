@@ -9,4 +9,10 @@ Rails.application.routes.draw do
   get 'static_pages/home'
   get 'static_pages/faq'
   resources :users, only: [:show]
+
+  resources :tweets do
+    collection do
+      get 'reply'
+    end
+  end
 end

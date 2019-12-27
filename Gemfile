@@ -40,6 +40,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'dotenv-rails'
+gem 'twitter'
 
 group :development, :test do
   gem 'sqlite3',      '1.3.13'
