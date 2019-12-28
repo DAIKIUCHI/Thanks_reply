@@ -6,33 +6,20 @@ class TweetsController < ApplicationController
     puts @reply
   end
 
-  # @twitter.mentions_timeline(current_user.nickname,{count:3}).each do |mention|
-    
-  # end
+  def new
+    @tweet = Tweet.new
+    @tweet_text = params[:content]
+  end
 
-  # def reply
-  #   @twitter.user_timeline(current_user.nickname, { count: 3 } ).each do |timeline|
-  #     puts.timeline
-  #     @tweet = @twitter.status(timeline.id)
-  #     puts @tweet.created_at
-  #     puts @tweet.text
-  #   end
-  # end
-
-  # def new
-  #   @tweet = Tweet.new
-  #   @tweet_text = params[:content]
-  # end
-
-  # def create
-  #   @tweet = current_user.tweets.build(tweet_params)
-  #   if @tweet.save
-  #     render html: "OK!!!!!"
-  #     # redirect_to root_url
-  #   else
-  #     render 'new'
-  #   end
-  # end
+  def create
+    @tweet = current_user.tweets.build(tweet_params)
+    if @tweet.save
+      render html: "OK!!!!!"
+      # redirect_to root_url
+    else
+      render 'new'
+    end
+  end
 
   # def index
   #   @tweets = Tweet.all
