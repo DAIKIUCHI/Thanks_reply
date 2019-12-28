@@ -1,5 +1,10 @@
-<% @reply.each do |r| %>
-  <%= r.text %>
-<% end %>
-
-<p>テストです。</p>
+<ul class="reply">
+  <% @reply.each do |tweet| %>
+    <%= form_tag(new_tweet_path, method: :get) do %>
+      <li>
+        <%= text_field_tag :content, tweet.text %>
+        <%= submit_tag "追加" %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

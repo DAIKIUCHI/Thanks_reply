@@ -10,6 +10,9 @@
   </head>
 
   <body>
+  <% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>"><%= message %></div>
+  <% end %>
     <%if user_signed_in? %>
       <%= current_user.nickname %>/ 
       <%= current_user.name %>

@@ -27,8 +27,9 @@ class TweetsController < ApplicationController
   def create
     @tweet = current_user.tweets.build(tweet_params)
     if @tweet.save
-      render html: "OK!!!!!"
-      # redirect_to root_url
+      # render html: "OK!!!!!"
+      flash[:success] = "でけた"
+      redirect_to root_url
     else
       render 'new'
     end
