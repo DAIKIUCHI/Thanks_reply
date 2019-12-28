@@ -19,20 +19,20 @@ class TweetsController < ApplicationController
   #   end
   # end
 
-  # def new
-  #   @tweet = Tweet.new
-  #   @tweet_text = params[:content]
-  # end
-
-  # def create
-  #   @tweet = current_user.tweets.build(tweet_params)
-  #   if @tweet.save
-  #     render html: "OK!!!!!"
-  #     # redirect_to root_url
-  #   else
-  #     render 'new'
-  #   end
-  # end
+  def new
+    @tweet = Tweet.new
+    @tweet_text = params[:content]
+  end
+  
+  def create
+    @tweet = current_user.tweets.build(tweet_params)
+    if @tweet.save
+      render html: "OK!!!!!"
+      # redirect_to root_url
+    else
+      render 'new'
+    end
+  end
 
   # def index
   #   @tweets = Tweet.all
