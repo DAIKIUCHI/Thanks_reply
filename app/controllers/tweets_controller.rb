@@ -6,34 +6,10 @@ class TweetsController < ApplicationController
     puts @reply
   end
 
-<<<<<<< HEAD
-=======
-  # @twitter.mentions_timeline(current_user.nickname,{count:3}).each do |mention|
-    
-  # end
-
-  # def reply
-  #   @twitter.user_timeline(current_user.nickname, { count: 3 } ).each do |timeline|
-  #     puts.timeline
-  #     @tweet = @twitter.status(timeline.id)
-  #     puts @tweet.created_at
-  #     puts @tweet.text
-  #   end
-  # end
-
->>>>>>> branch1
   def new
     @tweet = Tweet.new
     @tweet_text = params[:content]
   end
-<<<<<<< HEAD
-
-  def create
-    @tweet = current_user.tweets.build(tweet_params)
-    if @tweet.save
-      render html: "OK!!!!!"
-      # redirect_to root_url
-=======
   
   def create
     @tweet = current_user.tweets.build(tweet_params)
@@ -41,7 +17,6 @@ class TweetsController < ApplicationController
       # render html: "OK!!!!!"
       flash[:success] = "でけた"
       redirect_to root_url
->>>>>>> branch1
     else
       render 'new'
     end
@@ -54,7 +29,7 @@ class TweetsController < ApplicationController
 
   def show
     @tweet = Tweet.find(params[:id])
-    @image = @twitter.user.profile_image_url
+    # @image = @twitter.user.profile_image_url
   end
 
   private
