@@ -40,10 +40,10 @@ class TweetsController < ApplicationController
     # @tweets = Tweets.paginate(page: params[:page])
   end
 
-  # def show
-  #   @tweet = Tweet.find(params[:id])
-  #   @image = @twitter.user.profile_image_url
-  # end
+  def show
+    @tweet = Tweet.find(params[:id])
+    @image = @twitter.user.profile_image_url
+  end
 
   private
 
