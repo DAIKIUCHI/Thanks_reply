@@ -1,8 +1,9 @@
-<%= form_for(@tweet) do |f| %>
+
 <div class="field">
-  <%= f.label "らべる" %>
-  <%= f.text_field :comment %>
-  <%= f.text_field :content, value: @tweet_text %>
-  <%= f.submit %>
+  <%= form_for(@tweet) do |f| %>
+    <%= f.label "らべる" %>
+    <%= f.text_area :comment %>
+    <%= f.text_area :content, readonly: true, value: @tweet_text %>
+    <%= f.submit %>
+  <% end %>
 </div>
-<% end %>
