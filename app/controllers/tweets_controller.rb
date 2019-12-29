@@ -35,10 +35,10 @@ class TweetsController < ApplicationController
     end
   end
 
-  # def index
-  #   @tweets = Tweet.all
-  #   # @tweets = Tweets.paginate(page: params[:page])
-  # end
+  def index
+    @tweets = Tweet.all
+    # @tweets = Tweets.paginate(page: params[:page])
+  end
 
   # def show
   #   @tweet = Tweet.find(params[:id])
