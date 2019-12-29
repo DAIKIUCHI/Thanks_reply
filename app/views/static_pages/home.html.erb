@@ -5,7 +5,9 @@
 <% if user_signed_in? %>
 <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
 <p><%= link_to "よくある質問", static_pages_faq_path %></p>
+<p><%= link_to "<サービス名>とは", static_pages_about_path %></p>
 <% else %>
 <p><%= link_to "ログイン", new_user_session_path %></p>
 <p><%= link_to "よくある質問", static_pages_faq_path %></p>
+<p><%= link_to "<サービス名>とは", static_pages_about_path %></p>
 <% end %>

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get 'static_pages/home'
   get 'static_pages/faq'
+  get 'static_pages/about'
   resources :users, only: [:show]
 
   resources :tweets do
