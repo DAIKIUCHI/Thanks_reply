@@ -1,7 +1,19 @@
+<<<<<<< HEAD
 <ul class="replies">
 <% @reply.each do |r| %>
   <li>
   <%= r.text %>
   </li>
 <% end %>
+=======
+<ul class="reply">
+  <% @reply.each do |tweet| %>
+    <%= form_tag(new_tweet_path, method: :get) do %>
+      <li>
+        <%= text_field_tag :content, tweet.text %>
+        <%= submit_tag "追加" %>
+      </li>
+    <% end %>
+  <% end %>
+>>>>>>> branch1
 </ul>
