@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :set_twitter_client, only: [:reply, :show]
+  before_action :set_twitter_client#, only: [:reply, :show]
 
   def reply
     @reply = @twitter.mentions_timeline
@@ -16,7 +16,7 @@ class TweetsController < ApplicationController
     if @tweet.save
       # render html: "OK!!!!!"
       flash[:success] = "でけた"
-      redirect_to root_url
+      redirect_to @tweet
     else
       render 'new'
     end
@@ -30,6 +30,15 @@ class TweetsController < ApplicationController
   def show
     @tweet = Tweet.find(params[:id])
     # @image = @twitter.user.profile_image_url
+  end
+
+  def update
+    begin
+      @twitter.update("テスト1\nブログのためテストしています。(後で消します)")
+    rescue => e
+     error = e
+    end
+    render plain: error || "Twitter.update"
   end
 
   private
