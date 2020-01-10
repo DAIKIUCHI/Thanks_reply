@@ -4,3 +4,4 @@
 
 <p><%= @tweet.comment %></p>
 <p><%= @tweet.content %></p>
+<p><%= image_tag @tweet.picture.url if @tweet.picture? %></p>

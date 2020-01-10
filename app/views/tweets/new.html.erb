@@ -5,6 +5,7 @@
     <%= f.label "らべる" %>
     <%= f.text_area :comment %>
     <%= f.text_area :content, readonly: true, value: @tweet_text %>
+    <%= f.file_field :picture %>
     <%= f.submit %>
   <% end %>
 </div>
