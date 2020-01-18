@@ -1,7 +1,7 @@
 module TweetsHelper
   require 'mini_magick'
 
-  BASE_IMAGE_PATH = './app/assets/images/22.png'.freeze
+  BASE_IMAGE_PATH = './app/assets/images/test3.png'.freeze
   GRAVITY = 'center'.freeze
   TEXT_POSITION = '0,0'.freeze
   FONT = './app/assets/fonts/komorebi-gothic.ttf'.freeze
