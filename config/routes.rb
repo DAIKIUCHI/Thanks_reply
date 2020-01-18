@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :tweets do
     collection do
       get 'reply'
+      get 'test'
     end
   end
 end
