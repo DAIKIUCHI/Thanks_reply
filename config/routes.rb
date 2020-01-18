@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     collection do
       get 'reply'
       get 'test'
+      get 'form'
     end
   end
 end
