@@ -1,7 +1,7 @@
 module TweetsHelper
   require 'mini_magick'
 
-  BASE_IMAGE_PATH = './app/assets/images/test3.png'.freeze
+  # BASE_IMAGE_PATH = './app/assets/images/test3.png'.freeze
   GRAVITY = 'center'.freeze
   TEXT_POSITION = '0,0'.freeze
   FONT = './app/assets/fonts/komorebi-gothic.ttf'.freeze
@@ -10,8 +10,9 @@ module TweetsHelper
   class << self
     # 合成後のFileClassを生成
     def build(text)
+      base_image_path = @tweet.image
       text = prepare_text(text)
-      @image = MiniMagick::Image.open(BASE_IMAGE_PATH)
+      @image = MiniMagick::Image.open(base_image_path)
       configuration(text)
     end
 

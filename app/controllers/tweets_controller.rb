@@ -1,6 +1,13 @@
 class TweetsController < ApplicationController
   before_action :set_twitter_client#, only: [:reply, :show, :response]
 
+  # BASE_IMAGE_PATH = './app/assets/images/test3.png'.freeze
+  # BASE_IMAGE_PATH = @tweet.picture.path
+  GRAVITY = 'center'.freeze
+  TEXT_POSITION = '0,0'.freeze
+  FONT = './app/assets/fonts/komorebi-gothic.ttf'.freeze
+  ROW_LIMIT = 8
+
   def reply
     @reply = @twitter.mentions_timeline
     puts @reply
@@ -13,7 +20,7 @@ class TweetsController < ApplicationController
   
   def create
     @tweet = current_user.tweets.build(tweet_params)
-    @tweet.picture = TweetsHelper.build(@tweet.content)
+    @tweet.picture = Image_build(@tweet.content)
     @tweet.save
     flash[:success] = "でけた"
     @twitter.update_with_media("#{@tweet.comment}", "#{@tweet.picture.path}")
@@ -37,6 +44,12 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
   end
 
+  def Image_build(text)
+    text = prepare_text(text)
+    @image = MiniMagick::Image.open(@tweet.image)
+    configuration(text)
+  end
+
   private
 
     def set_twitter_client
@@ -49,7 +62,29 @@ class TweetsController < ApplicationController
     end
 
     def tweet_params
-      params.require(:tweet).permit(:comment, :content, :picture)
+      params.require(:tweet).permit(:comment, :content, :picture, :image)
     end
 
+        # 設定関連の値を代入
+        def configuration(text)
+          @image.combine_options do |config|
+            config.font FONT
+            config.gravity GRAVITY
+            config.pointsize @font_size
+            config.draw "text #{TEXT_POSITION} '#{text}'"
+          end
+        end
+    
+        # 背景にいい感じに収まるように文字を調整して返却
+        def prepare_text(text)
+          if text.length >= 90
+            @font_size = 20
+            indention_count = 40
+          else
+            indention_count = 20
+            @font_size = 40
+          end
+          text.scan(/.{1,#{indention_count}}/)[0...ROW_LIMIT].join("\n")
+        end
+  
 end

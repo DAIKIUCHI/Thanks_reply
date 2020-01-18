@@ -5,7 +5,13 @@
     <%= f.label "らべる" %>
     <%= f.text_area :comment %>
     <%= f.text_area :content, readonly: true, value: @tweet_text %>
-    <%= f.file_field :picture %>
+
     <%= f.submit %>
-  <% end %>
-</div>
+
+    <label><%= f.radio_button :image, "./app/assets/images/test0.png" %><%= image_tag "test0.png"%></label>
+    <label><%= f.radio_button :image, "./app/assets/images/test1.png" %><%= image_tag "test1.png"%></label>
+    <label><%= f.radio_button :image, "./app/assets/images/test2.png" %><%= image_tag "test2.png"%></label>
+    <label><%= f.radio_button :image, "./app/assets/images/test3.png" %><%= image_tag "test3.png"%></label>
+ 
+<% end %>
+
