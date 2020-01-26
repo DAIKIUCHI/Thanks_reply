@@ -9,9 +9,11 @@
     <% else %>
       <%= render 'shared/logout' %>
     <% end %>
+    <!--
     <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>
-    <% end %>
+    <% end %>    
+    -->
     <div class="container">
       <%if user_signed_in? %>
         <%= current_user.nickname %>/ 
