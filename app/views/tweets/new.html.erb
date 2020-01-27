@@ -8,10 +8,10 @@
 
     <%= f.submit %>
 
-    <label><%= f.radio_button :image, asset_path("test0.png") %><%= image_tag asset_path("test0.png") %></label>
-    <label><%= f.radio_button :image, asset_path("test1.png") %><%= image_tag asset_path("test1.png") %></label>
-    <label><%= f.radio_button :image, asset_path("test2.png") %><%= image_tag asset_path("test2.png") %></label>
-    <label><%= f.radio_button :image, asset_path("test3.png") %><%= image_tag asset_path("test3.png") %></label>
+    <label><%= f.radio_button :image, "./app/assets/images/test0.png" %><%= image_tag "test0.png"%></label>
+    <label><%= f.radio_button :image, "./app/assets/images/test1.png" %><%= image_tag "test1.png"%></label>
+    <label><%= f.radio_button :image, "./app/assets/images/test2.png" %><%= image_tag "test2.png"%></label>
+    <label><%= f.radio_button :image, "./app/assets/images/test3.png" %><%= image_tag "test3.png"%></label>
  
   <% end %>
 
