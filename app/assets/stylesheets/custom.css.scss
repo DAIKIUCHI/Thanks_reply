@@ -63,3 +63,19 @@ p {
   letter-spacing: -1px;
   padding-top: 12px;
 }
+
+
+/* 画像部分に余白を持たせる */
+label img {
+  margin: 3px;
+  padding: 5px;
+}
+
+/* 選択されたラジオボタンの画像の背景をオレンジ色に変える */
+input[type="radio"]:checked + img {
+  background: orange;
+}
+
+input[type="radio"] {
+  display: none;
+}
